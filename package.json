@@ -1,0 +1,25 @@
+{
+  "name": "dxc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel *.html --open",
+    "build": "parcel build *.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikt5485/dxc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikt5485/dxc/issues"
+  },
+  "homepage": "https://github.com/vikt5485/dxc#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.5"
+  }
+}
