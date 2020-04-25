@@ -1,2 +1,24 @@
-$primary-color: black;
-$secondary-color: yellow;
+$primary-color: white;
+$secondary-color: black;
+$highlight: #ffed00;
+
+$tablet: 500px;
+$desktop: 800px;
+
+$font_bold: 'WalsheimBold';
+$font_regular: 'WalsheimRegular';
+
+* {
+    --vh: 1vh;
+}
+
+
+@font-face {
+    font-family: 'WalsheimBold';
+    src: url('./partials/base/fonte/GT-Walsheim-Pro-Bold.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: 'WalsheimRegular';
+    src: url('./partials/base/fonte/GT-Walsheim-Pro-Regular.woff2') format('woff2')
+}

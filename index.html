@@ -1,13 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.scss" />
-  </head>
 
-  <body>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.scss" />
+</head>
+
+<body>
+  <main>
+    <section id="hero"></section>
+    <section id="form_container">
+      <h2>Sign up here, to gain direct access to the white paper</h2>
+      <p>Already signed up? <a href="#">Get access now</a></p>
+      <form action="#">
+        <label for="firstname">First name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="First name">
+
+        <label for="lastname">Last name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Last name">
+
+        <label for="email">Work e-mail address</label>
+        <input type="email" id="email" name="email" placeholder="work@email.com">
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="Company name">
+
+        <label for="jobtitle">Job title</label>
+        <input type="text" id="jobtitle" name="jobtitle" placeholder="Job title">
+
+        <label for="country">Country</label>
+        <select name="country" id="country">
+          <option value="Denmark">Denmark</option>
+          <option value="Sweden">Sweden</option>
+        </select>
+
+        <input type="checkbox" name="consent" id="consent">
+        <label for="consent">Yes, you can email me and process my data for marketing purposes.</label>
+
+        <button type="submit" id="submit">Sign up</button>
+
+      </form>
+      <!-- <form action="#">
+        <fieldset>
+          <legend>Add card</legend>
+          <label for="inp-title">Title</label>
+          <input type="text" name="title" id="inp-title" placeholder="Card title" required>
+          <p class="error title-err"><span class="material-icons">
+              error
+            </span>Please pick a title for this task.</p>
+
+          <label for="inp-desc">Description</label>
+          <textarea id="inp-desc" name="description" minlength="2" placeholder="Describe the card" required></textarea>
+          <p class="error desc-err"><span class="material-icons">
+              error
+            </span>Please describe this task.</p>
+
+          <label for="inp-creator">Creator</label>
+          <select name="creator" id="inp-creator" required>
+            <option disabled hidden selected value="*">Pick a creator</option>
+            <option value="Viktor Kjeldal">Viktor Kjeldal</option>
+            <option value="John Appleseed">John Appleseed</option>
+            <option value="Albert Einstein">Albert Einstein</option>
+          </select>
+          <p class="error creator-err"><span class="material-icons">
+              error
+            </span>Please pick the creator of the task.</p>
+
+          <label for="inp-estimate">Estimate time (between 1 - 8 hours)</label>
+          <input type="number" name="estimate" id="inp-estimate" min="1" max="8" placeholder="1-8" required>
+          <p class="error estimate-err"><span class="material-icons">
+              error
+            </span><span>Please give a time estimate of the task.</span></p>
+
+          <label for=" inp-deadline">Deadline</label>
+          <input type="date" class="placeholder" name="deadline" id="inp-deadline" placeholder="xx/xx/xxx" required>
+          <p class="error deadline-err"><span class="material-icons">
+              error
+            </span>Please pick a deadline for the task.</p>
+
+          <label for="inp-priority">Priority</label>
+          <select name="priority" id="inp-priority" required>
+            <option disabled hidden selected value="*">Pick a priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <p class="error priority-err"><span class="material-icons">
+              error
+            </span>Please pick the priority of this task.</p>
+
+          <label for="inp-color">Color</label>
+          <select name="color" id="inp-color" required>
+            <option disabled hidden selected value="*">Pick a color</option>
+            <option value="#dbdbdb">Default (gray)</option>
+            <option value="#3792cb">Blue</option>
+            <option value="#bb0a1e">Red</option>
+            <option value="#197419">Green</option>
+            <option value="#ff6600">Orange</option>
+            <option value="#ff7bb4">Pink</option>
+            <option value="custom">Custom</option>
+          </select>
+          <input type="color" name="customColor" id="custom-color">
+          <p class="error color-err"><span class="material-icons">
+              error
+            </span>Please pick the priority of this task.</p>
+          <button class="add-new" type="submit">Add new card</button>
+          <button class="clear-form">Start over</button>
+        </fieldset>
+      </form> -->
+    </section>
+  </main>
+  <script src="index.js"></script>
+</body>
+
 </html>
