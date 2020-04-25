@@ -38,6 +38,11 @@ main {
         height: 500px;
         background-position: 50%;
 
+        .logo {
+            width: 200px;
+            margin: 30px;
+        }
+
         @include desktop {
             width: 70%;
             height: calc(var(--vh, 1vh) * 100);
@@ -58,6 +63,18 @@ main {
             width: 30%;
             height: calc(var(--vh, 1vh) * 100);
             overflow-y: scroll;
+        }
+
+        #access_btn {
+            -webkit-appearance: none;
+            border: none;
+            outline: none;
+            font-size: 1.8rem;
+            font-family: $font_regular;
+            padding: 0;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
         }
 
 
@@ -82,6 +99,8 @@ main {
                 margin-bottom: 30px;
                 font-family: $font_regular;
                 font-size: 1.5rem;
+                appearance: none;
+                border: 1px solid black;
             }
 
             select {
@@ -93,5 +112,8 @@ main {
             }
         }
 
+        #direct_form {
+            display: none;
+        }
     }
 }
