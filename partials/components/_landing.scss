@@ -67,13 +67,14 @@ main {
 
         #access_btn {
             -webkit-appearance: none;
+            -moz-appearance: none;
             border: none;
             outline: none;
             font-size: 1.8rem;
             font-family: $font_regular;
             padding: 0;
             cursor: pointer;
-            color: blue;
+            color: $link;
             text-decoration: underline;
         }
 
@@ -94,26 +95,69 @@ main {
                 font-family: $font_regular;
             }
 
+            #consent_label {
+                display: inline;
+            }
+
             input,
             select {
                 margin-bottom: 30px;
                 font-family: $font_regular;
                 font-size: 1.5rem;
-                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
                 border: 1px solid black;
+                border-radius: 2px;
+            }
+
+            input[type=checkbox] {
+                margin-bottom: 0;
+                cursor: pointer;
+                -webkit-appearance: checkbox;
+                -moz-appearance: checkbox;
             }
 
             select {
                 height: 40px;
+                cursor: pointer;
+                background-color: transparent;
+            }
+
+            button[type=submit] {
+                margin-top: 30px;
+                padding: 20px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-color: $secondary-color;
+                color: $primary-color;
+                border: none;
+                cursor: pointer;
+                border-radius: 2px;
+                font-family: $font_bold;
+                font-size: 1.6rem;
+            }
+
+            #back_btn {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-color: transparent;
+                padding: 0;
+                margin: 0;
+                color: $link;
+                border: none;
+                margin-top: 10px;
+                text-decoration: underline;
+                cursor: pointer;
             }
 
             button {
                 display: block;
+
             }
         }
+    }
 
-        #direct_form {
-            display: none;
-        }
+    .hide {
+        display: none;
     }
 }

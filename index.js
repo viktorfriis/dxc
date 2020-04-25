@@ -10,8 +10,8 @@ let vh;
 function start() {
     console.log("start");
 
-    HTML.signupForm = document.querySelector("#signup_form");
-    HTML.directForm = document.querySelector("#direct_form");
+    HTML.signupForm = document.querySelector(".signup_form");
+    HTML.directForm = document.querySelector(".direct_form");
 
 
     elements = HTML.signupForm.elements;
@@ -22,6 +22,7 @@ function start() {
     window.addEventListener("resize", resizeWindow);
 
     document.querySelector("#access_btn").addEventListener("click", modifyForm);
+    document.querySelector("#back_btn").addEventListener("click", modifyForm);
     formReady();
 }
 
@@ -40,18 +41,45 @@ function formReady() {
         const formValidity = HTML.signupForm.checkValidity();
 
         if (formValidity) {
-            const data = {
-                firstname: elements.firstname.value,
-                lastname: elements.lastname.value,
-                email: elements.email.value,
-                company: elements.company.value,
-                jobtitle: elements.jobtitle.value,
-                country: elements.country.value,
-                assetviews: 1
-            };
+            //Gør så man ikke kan trykke flere gange på submit knappen
+            elements.signup.setAttribute("disabled", true);
+            //Hvis formularen er valid, checker vi først om brugeren allerede er i systemet.
+            fetch(`${endPoint}?q={"email":"${elements.email.value}"}`, {
+                    method: "get",
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "x-apikey": `${APIKey}`,
+                        "cache-control": "no-cache"
+                    }
+                })
+                .then(e => e.json())
+                .then(e => {
+                    //Hvis brugeren ikke er i systemet, sender vi alt dataen til databasen
+                    if (e.length === 0) {
+                        const data = {
+                            firstname: elements.firstname.value,
+                            lastname: elements.lastname.value,
+                            email: elements.email.value,
+                            company: elements.company.value,
+                            jobtitle: elements.jobtitle.value,
+                            country: elements.country.value,
+                            assetviews: 1
+                        };
 
-            // clearForm();
-            post(data);
+                        // clearForm();
+                        post(data);
+                    } else {
+                        //Hvis brugeren allerede er i systemet, opdaterer vi brugeren med et ekstra assetview
+                        const data = {
+                            $inc: {
+                                assetviews: 1
+                            }
+                        }
+
+                        const postData = JSON.stringify(data);
+                        updateUser(postData, e);
+                    }
+                });
         } else {
             console.log("Not valid form");
         }
@@ -63,6 +91,7 @@ function formReady() {
         const formValidity = HTML.directForm.checkValidity();
 
         if (formValidity) {
+            document.querySelector("#submit_direct").setAttribute("disabled", true);
             const data = {
                 $inc: {
                     assetviews: 1
@@ -80,8 +109,19 @@ function formReady() {
 
 function modifyForm() {
     console.log("modify");
-    HTML.signupForm.style.display = "none";
-    HTML.directForm.style.display = "block";
+    HTML.signupForm.classList.toggle("hide");
+    HTML.directForm.classList.toggle("hide");
+
+    if (!HTML.signupForm.classList.contains("hide")) {
+        document.querySelector("#form_container > h2").textContent = "Sign up here, to gain direct access to the white paper";
+        document.querySelector("#form_container > p > span").textContent = "Already signed up?";
+        document.querySelector("#access_btn").classList.remove("hide");
+        document.querySelector("#access_btn").textContent = "Get direct access."
+    } else if (!HTML.directForm.classList.contains("hide")) {
+        document.querySelector("#form_container > h2").textContent = "We are glad you are back!";
+        document.querySelector("#form_container > p > span").textContent = "Please type your work e-mail address, so we can verify your information.";
+        document.querySelector("#access_btn").classList.add("hide");
+    }
 }
 
 //POST
@@ -114,7 +154,15 @@ function getUser(data, user) {
             }
         })
         .then(e => e.json())
-        .then(e => updateUser(postData, e));
+        .then(e => {
+            //Vi checker om brugeren er i systemet eller ej
+            if (e.length === 0) {
+                console.log("NOT IN THE SYSTEM");
+                //SHOW ERROR
+            } else {
+                updateUser(postData, e);
+            }
+        })
 }
 
 function updateUser(postData, e) {

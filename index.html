@@ -15,8 +15,8 @@
     </section>
     <section id="form_container">
       <h2>Sign up here, to gain direct access to the white paper</h2>
-      <p>Already signed up? <button id="access_btn">Get access now</button></p>
-      <form action="#" id="signup_form">
+      <p><span>Already signed up?</span> <button id="access_btn">Get direct access</button></p>
+      <form action="#" class="signup_form">
         <label for="firstname">First name</label>
         <input type="text" id="firstname" name="firstname" placeholder="First name" required>
 
@@ -282,16 +282,18 @@
         </select>
 
         <input type="checkbox" name="consent" id="consent" required>
-        <label for="consent">Yes, you can email me and process my data for marketing purposes.</label>
+        <label for="consent" id="consent_label">Yes, you can email me and process my data for marketing
+          purposes.</label>
 
-        <button type="submit" id="submit">Sign up</button>
+        <button type="submit" id="submit" name="signup">Sign up</button>
 
       </form>
 
-      <form action="#" id="direct_form">
+      <form action="#" class="direct_form hide">
         <label for="direct_email">Work e-mail address</label>
         <input type="email" id="direct_email" name="direct_email" placeholder="work@email.com" required>
-        <button type="submit" id="submit">Gain access</button>
+        <button type="submit" id="submit_direct">Gain access</button>
+        <button id="back_btn">Go back</button>
       </form>
     </section>
   </main>
