@@ -13,7 +13,6 @@ function start() {
     HTML.signupForm = document.querySelector(".signup_form");
     HTML.directForm = document.querySelector(".direct_form");
 
-
     elements = HTML.signupForm.elements;
 
     vh = window.innerHeight * 0.01;
@@ -23,7 +22,32 @@ function start() {
 
     document.querySelector("#access_btn").addEventListener("click", modifyForm);
     document.querySelector("#back_btn").addEventListener("click", modifyForm);
+
+    if (localStorage.getItem("auth")) {
+        excistingUser();
+    }
+
     formReady();
+}
+
+function excistingUser() {
+    const userFirstName = localStorage.getItem("firstName");
+    const userEmail = localStorage.getItem("userEmail");
+
+    document.querySelector("#form_container > h2").textContent = `Welcome back ${userFirstName}!`;
+    document.querySelector("#form_container > p").textContent = "";
+    HTML.signupForm.classList.add("hide");
+    document.querySelector("#direct_access").classList.remove("hide");
+
+    document.querySelector("#direct_access").addEventListener("click", () => {
+        const data = {
+            $inc: {
+                assetviews: 1
+            }
+        }
+
+        getUser(data, userEmail);
+    })
 }
 
 function resizeWindow() {
@@ -126,8 +150,14 @@ function modifyForm() {
 
 //POST
 function post(data) {
-    const postData = JSON.stringify(data);
 
+    //SET LOCAL STORAGE
+    localStorage.setItem("auth", true);
+    localStorage.setItem("userEmail", data.email);
+    localStorage.setItem("firstName", data.firstname);
+
+    //POSTING DATA TO DATABASE
+    const postData = JSON.stringify(data);
     fetch(endPoint + "?max=100", {
             method: "post",
             headers: {
@@ -166,6 +196,11 @@ function getUser(data, user) {
 }
 
 function updateUser(postData, e) {
+    //SET LOCAL STORAGE
+    localStorage.setItem("auth", true);
+    localStorage.setItem("userEmail", e[0].email);
+    localStorage.setItem("firstName", e[0].firstname);
+
     let userID = e[0]._id;
 
     fetch(`${endPoint}/${userID}`, {

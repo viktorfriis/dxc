@@ -6,8 +6,10 @@ $link: rgb(0, 139, 194);
 $tablet: 500px;
 $desktop: 800px;
 
-$font_bold: 'WalsheimBold';
-$font_regular: 'WalsheimRegular';
+$font_bold: 'WalsheimBold',
+sans-serif;
+$font_regular: 'WalsheimRegular',
+sans-serif;
 
 * {
     --vh: 1vh;

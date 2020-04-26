@@ -123,20 +123,6 @@ main {
                 background-color: transparent;
             }
 
-            button[type=submit] {
-                margin-top: 30px;
-                padding: 20px;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                background-color: $secondary-color;
-                color: $primary-color;
-                border: none;
-                cursor: pointer;
-                border-radius: 2px;
-                font-family: $font_bold;
-                font-size: 1.6rem;
-            }
-
             #back_btn {
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -159,5 +145,19 @@ main {
 
     .hide {
         display: none;
+    }
+
+    .main_btn {
+        margin-top: 30px;
+        padding: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: $secondary-color;
+        color: $primary-color;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+        font-family: $font_bold;
+        font-size: 1.6rem;
     }
 }
