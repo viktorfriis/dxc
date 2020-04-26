@@ -40,6 +40,8 @@ function excistingUser() {
     document.querySelector("#direct_access").classList.remove("hide");
 
     document.querySelector("#direct_access").addEventListener("click", () => {
+        document.querySelector("#direct_access").setAttribute("disabled", true);
+        document.querySelector("#local_loader").classList.remove("hide");
         const data = {
             $inc: {
                 assetviews: 1
@@ -67,6 +69,7 @@ function formReady() {
         if (formValidity) {
             //Gør så man ikke kan trykke flere gange på submit knappen
             elements.signup.setAttribute("disabled", true);
+            document.querySelector("#submit_loader").classList.remove("hide");
             //Hvis formularen er valid, checker vi først om brugeren allerede er i systemet.
             fetch(`${endPoint}?q={"email":"${elements.email.value}"}`, {
                     method: "get",
@@ -90,7 +93,6 @@ function formReady() {
                             assetviews: 1
                         };
 
-                        // clearForm();
                         post(data);
                     } else {
                         //Hvis brugeren allerede er i systemet, opdaterer vi brugeren med et ekstra assetview
@@ -116,6 +118,7 @@ function formReady() {
 
         if (formValidity) {
             document.querySelector("#submit_direct").setAttribute("disabled", true);
+            document.querySelector("#direct_loader").classList.remove("hide");
             const data = {
                 $inc: {
                     assetviews: 1
@@ -123,10 +126,18 @@ function formReady() {
             }
 
             let user = document.querySelector("#direct_email").value;
-            // clearForm();
             getUser(data, user);
         } else {
             console.log("Not valid form");
+            //SHOW ERROR
+            document.querySelector("#direct_email").classList.add("invalid");
+            document.querySelector(".direct-err").classList.remove("hide");
+
+            document.querySelector("#direct_email").addEventListener("focus", () => {
+                document.querySelector("#submit_direct").removeAttribute("disabled", true);
+                document.querySelector("#direct_email").classList.remove("invalid");
+                document.querySelector(".direct-err").classList.add("hide");
+            })
         }
     })
 }
@@ -168,7 +179,7 @@ function post(data) {
             body: postData
         })
         .then(e => e.json())
-        .then(e => console.log(e));
+        .then(e => window.location.href = "test.html");
 }
 
 //PUT
@@ -188,7 +199,16 @@ function getUser(data, user) {
             //Vi checker om brugeren er i systemet eller ej
             if (e.length === 0) {
                 console.log("NOT IN THE SYSTEM");
+                document.querySelector("#direct_loader").classList.add("hide");
                 //SHOW ERROR
+                document.querySelector("#direct_email").classList.add("invalid");
+                document.querySelector(".direct-err").classList.remove("hide");
+
+                document.querySelector("#direct_email").addEventListener("focus", () => {
+                    document.querySelector("#submit_direct").removeAttribute("disabled", true);
+                    document.querySelector("#direct_email").classList.remove("invalid");
+                    document.querySelector(".direct-err").classList.add("hide");
+                })
             } else {
                 updateUser(postData, e);
             }
@@ -213,5 +233,5 @@ function updateUser(postData, e) {
             body: postData
         })
         .then(e => e.json())
-        .then(e => console.log(e))
+        .then(e => window.location.href = "test.html")
 }
