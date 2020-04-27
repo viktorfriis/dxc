@@ -1,0 +1,30 @@
+@use 'vars'as *;
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h1 {
+    font-family: $font_bold;
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: $font_bold;
+}
+
+p,
+a {
+    font-size: 1.8rem;
+    font-family: $font_regular;
+}
