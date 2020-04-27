@@ -5,23 +5,6 @@ body {
     background-color: $primary-color;
 }
 
-h1 {
-    font-family: $font_bold;
-    font-size: 3.6rem;
-}
-
-h2 {
-    font-size: 3rem;
-    font-family: $font_bold;
-}
-
-p,
-a {
-    font-size: 1.8rem;
-    font-family: $font_regular;
-}
-
-
 main {
     display: flex;
     flex-direction: column;
@@ -51,6 +34,7 @@ main {
 
             @include desktop {
                 background-color: transparent;
+                padding: 30px;
             }
         }
 
@@ -251,11 +235,11 @@ main {
     }
 
     .loader {
-        border: 7px solid black;
-        border-top: 7px solid $highlight;
+        border: 5px solid black;
+        border-top: 5px solid $highlight;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         animation: spin 1s linear infinite;
         margin-left: 10px;
     }

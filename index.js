@@ -22,6 +22,9 @@ function start() {
 
     document.querySelector("#access_btn").addEventListener("click", modifyForm);
     document.querySelector("#back_btn").addEventListener("click", modifyForm);
+    document.querySelector(".logo").addEventListener("click", () => {
+        localStorage.clear();
+    })
 
     if (localStorage.getItem("auth")) {
         excistingUser();
@@ -148,7 +151,7 @@ function modifyForm() {
     HTML.directForm.classList.toggle("hide");
 
     if (!HTML.signupForm.classList.contains("hide")) {
-        document.querySelector("#form_container > h2").textContent = "Sign up here, to gain direct access to the white paper";
+        document.querySelector("#form_container > h2").textContent = "Sign up here, to gain direct access to the white paper.";
         document.querySelector("#form_container > p > span").textContent = "Already signed up?";
         document.querySelector("#access_btn").classList.remove("hide");
         document.querySelector("#access_btn").textContent = "Get direct access."
