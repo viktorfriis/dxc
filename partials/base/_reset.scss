@@ -39,3 +39,11 @@ ul {
     font-family: $font_regular;
     font-size: 1.2rem;
 }
+
+a {
+    color: $highlight;
+}
+
+a:visited {
+    color: $highlight;
+}

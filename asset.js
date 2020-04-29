@@ -129,7 +129,7 @@ function formReady() {
                     document.querySelector(".last-err").classList.add("hide");
                 })
             }
-            if (!testEmail(elements.email.value)) {
+            if (!elements.email.checkValidity()) {
                 elements.email.classList.add("invalid");
                 document.querySelector(".email-err").classList.remove("hide");
 
@@ -179,7 +179,7 @@ function formReady() {
     HTML.directForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (testEmail(document.querySelector("#direct_email").value)) {
+        if (document.querySelector("#direct_email").checkValidity()) {
             document.querySelector("#submit_direct").setAttribute("disabled", true);
             document.querySelector("#direct_loader").classList.remove("asset_hide");
             const data = {
@@ -203,10 +203,6 @@ function formReady() {
             })
         }
     })
-}
-
-function testEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 function modifyForm() {

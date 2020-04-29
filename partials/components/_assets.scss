@@ -297,15 +297,6 @@ li {
   color: white;
 }
 
-a:link {
-  color: black;
-}
-
-/* visited link */
-a:visited {
-  color: grey;
-}
-
 #signup_asset {
   background-color: white;
   width: 100vw;
@@ -331,9 +322,15 @@ a:visited {
           grid-gap: 30px;
         }
 
+
+
         div {
           display: block;
         }
+      }
+
+      .submit_container {
+        display: flex;
       }
     }
 
@@ -352,12 +349,4 @@ a:visited {
 
 .asset_cta:visited {
   color: white;
-}
-
-a {
-  color: $highlight;
-}
-
-a:visited {
-  color: $highlight;
 }

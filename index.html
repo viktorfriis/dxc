@@ -44,7 +44,8 @@
             </span><span>Please type your last name.</span></p>
 
           <label for="email">Work e-mail address</label>
-          <input type="email" id="email" name="email" placeholder="work@email.com" required>
+          <input type="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" name="email" placeholder="work@email.com"
+            required>
           <p class="error email-err hide"><span class="material-icons">
               error
             </span><span>Please type your e-mail address.</span></p>
@@ -335,7 +336,8 @@
 
       <form action="#" class="direct_form hide">
         <label for="direct_email">Work e-mail address</label>
-        <input type="email" id="direct_email" name="direct_email" placeholder="work@email.com" required>
+        <input type="email" id="direct_email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" name="direct_email"
+          placeholder="work@email.com" required>
         <p class="error direct-err hide"><span class="material-icons">
             error
           </span><span>We did not find that e-mail. Please check the spelling.</span></p>
