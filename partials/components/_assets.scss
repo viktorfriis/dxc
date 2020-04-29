@@ -23,10 +23,13 @@ html {
 }
 
 .overskrift {
-  position: absolute;
   padding: 10px;
   top: 115px;
-  margin: 50px;
+  padding: 50px;
+
+  @include tablet {
+    position: absolute;
+  }
 }
 
 header h1 {
@@ -195,11 +198,18 @@ hr {
 }
 
 .grid-container {
+
+
   h3 {
     border-bottom: 3px solid;
     margin-bottom: 0;
     padding-bottom: 10px;
     padding-right: 10px;
+    font-size: 1.2rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   h4 {
@@ -278,6 +288,14 @@ li {
   color: white;
 }
 
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: grey;
+}
 
 #signup_asset {
   background-color: white;
@@ -285,7 +303,6 @@ li {
   overflow-y: scroll;
 
   #form_container {
-
     @include tablet {
       width: 60%;
     }
@@ -299,7 +316,6 @@ li {
 
     form {
       div {
-
         @include desktop {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -316,4 +332,15 @@ li {
       display: none;
     }
   }
+}
+
+.asset_cta {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+}
+
+.asset_cta:visited {
+  color: white;
 }
