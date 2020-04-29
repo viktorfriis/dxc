@@ -11,6 +11,10 @@ function start() {
 
     if (localStorage.getItem("auth")) {
         console.log("authenticated");
+        document.querySelector(".logo").addEventListener("click", () => {
+            console.log("CLEAR");
+            localStorage.clear();
+        })
     } else {
         console.log("not authenticated");
         showForm();

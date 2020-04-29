@@ -94,7 +94,6 @@ span.bold {
     font-size: 1.5rem;
     font-family: $font_regular;
     line-height: 1.2;
-    margin-left: -20px;
   }
 
   @include medium {
@@ -107,11 +106,12 @@ span.bold {
 }
 
 .column {
-  padding: 0 50px;
+  padding: 0 50px 40px 50px;
 
   h1 {
     font-size: 2rem;
-    margin-left: -30px;
+    margin-left: -10px;
+    margin-top: 40px;
   }
 
   h2 {
@@ -125,6 +125,10 @@ span.bold {
 }
 
 body>main>section.section-wrapper>div:nth-child(2)>p:nth-child(1) {
+  margin-top: 50px;
+}
+
+body>main>section:nth-child(1)>div:nth-child(2)>p:nth-child(6) {
   margin-top: 0;
 }
 
@@ -232,13 +236,12 @@ li {
 
 .footer {
   position: relative;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: 10%;
   background-color: black;
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 .format p {

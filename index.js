@@ -24,7 +24,7 @@ function start() {
 
     document.querySelector("#access_btn").addEventListener("click", modifyForm);
     document.querySelector("#back_btn").addEventListener("click", modifyForm);
-    document.querySelector(".logo").addEventListener("click", () => {
+    document.querySelector(".landing_logo").addEventListener("click", () => {
         localStorage.clear();
     })
 
