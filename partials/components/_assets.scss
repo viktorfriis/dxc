@@ -256,18 +256,27 @@ li {
 
 .format p {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.8rem;
   position: relative;
 }
+
+
+
 
 /*/ FAVICONER /*/
 
 .fa {
   padding: 5px;
-  font-size: 30px;
+
   width: 50px;
   text-align: center;
   text-decoration: none;
+}
+
+.icon {
+  a {
+    font-size: 3rem;
+  }
 }
 
 .fa:hover {
@@ -343,4 +352,12 @@ a:visited {
 
 .asset_cta:visited {
   color: white;
+}
+
+a {
+  color: $highlight;
+}
+
+a:visited {
+  color: $highlight;
 }

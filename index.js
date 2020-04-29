@@ -111,20 +111,25 @@ function formReady() {
                             company: elements.company.value,
                             jobtitle: elements.jobtitle.value,
                             country: elements.country.value,
-                            assetviews: 1
+                            assetviews: 0
                         };
 
                         post(data);
                     } else {
                         //Hvis brugeren allerede er i systemet, opdaterer vi brugeren med et ekstra assetview
-                        const data = {
-                            $inc: {
-                                assetviews: 1
-                            }
-                        }
+                        localStorage.setItem("auth", true);
+                        localStorage.setItem("userEmail", e[0].email);
+                        localStorage.setItem("firstName", e[0].firstname);
 
-                        const postData = JSON.stringify(data);
-                        updateUser(postData, e);
+                        window.location.href = "assets.html";
+                        // const data = {
+                        //     $inc: {
+                        //         assetviews: 1
+                        //     }
+                        // }
+
+                        // const postData = JSON.stringify(data);
+                        // updateUser(postData, e);
                     }
                 });
         } else {
@@ -297,28 +302,33 @@ function getUser(data, user) {
                     document.querySelector(".direct-err").classList.add("hide");
                 })
             } else {
-                updateUser(postData, e);
+                localStorage.setItem("auth", true);
+                localStorage.setItem("userEmail", e[0].email);
+                localStorage.setItem("firstName", e[0].firstname);
+
+                window.location.href = "assets.html"
+                // updateUser(postData, e);
             }
         })
 }
 
-function updateUser(postData, e) {
-    //SET LOCAL STORAGE
-    localStorage.setItem("auth", true);
-    localStorage.setItem("userEmail", e[0].email);
-    localStorage.setItem("firstName", e[0].firstname);
+// function updateUser(postData, e) {
+//     //SET LOCAL STORAGE
+//     localStorage.setItem("auth", true);
+//     localStorage.setItem("userEmail", e[0].email);
+//     localStorage.setItem("firstName", e[0].firstname);
 
-    let userID = e[0]._id;
+//     let userID = e[0]._id;
 
-    fetch(`${endPoint}/${userID}`, {
-            method: "put",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                "x-apikey": `${APIKey}`,
-                "cache-control": "no-cache"
-            },
-            body: postData
-        })
-        .then(e => e.json())
-        .then(e => window.location.href = "assets.html")
-}
+//     fetch(`${endPoint}/${userID}`, {
+//             method: "put",
+//             headers: {
+//                 "Content-Type": "application/json; charset=utf-8",
+//                 "x-apikey": `${APIKey}`,
+//                 "cache-control": "no-cache"
+//             },
+//             body: postData
+//         })
+//         .then(e => e.json())
+//         .then(e => window.location.href = "assets.html")
+// }
