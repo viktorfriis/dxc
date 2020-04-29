@@ -124,7 +124,7 @@ span.bold {
   }
 }
 
-body>main>section.section-wrapper>div:nth-child(2)>p:nth-child(1) {
+body > main > section.section-wrapper > div:nth-child(2) > p:nth-child(1) {
   margin-top: 0;
 }
 
@@ -275,6 +275,14 @@ li {
   color: white;
 }
 
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: grey;
+}
 
 #signup_asset {
   background-color: white;
@@ -282,7 +290,6 @@ li {
   overflow-y: scroll;
 
   #form_container {
-
     @include tablet {
       width: 60%;
     }
@@ -296,7 +303,6 @@ li {
 
     form {
       div {
-
         @include desktop {
           display: grid;
           grid-template-columns: 1fr 1fr;
