@@ -13,22 +13,27 @@ html {
   font-size: 62.5%;
 }
 
+.splash {
+  background-image: url("static/imgs/working.jpg");
+  filter: grayscale(100%);
+  height: 100vh;
+  background-size: cover;
+}
+
+.overskrift {
+  position: absolute;
+}
+
 header h1 {
   font-family: $font_bold;
-  font-size: 2rem;
-  position: absolute;
-  top: 1px;
-  margin: 30px;
-  color: white;
+
+  color: black;
+  font-size: 4rem;
 }
 
 header h2 {
-  font-family: $font_bold;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 95px;
-  margin: 30px;
-  color: white;
+  font-family: $font_regular;
+  color: black;
 }
 
 .column {
@@ -47,10 +52,10 @@ img {
 }
 
 .logo {
-  width: 40%;
-  position: relative;
-  display: block;
-  left: 55%;
+  width: 30%;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 
 .column h1 {
@@ -78,7 +83,7 @@ img {
   padding: 0 50px;
 }
 
-body>main>section.section-wrapper>div:nth-child(2)>p:nth-child(1) {
+body > main > section.section-wrapper > div:nth-child(2) > p:nth-child(1) {
   margin-top: 0;
 }
 
@@ -133,7 +138,6 @@ hr {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto;
-
 }
 
 .grid-container {
@@ -163,7 +167,6 @@ hr {
 .item3 {
   grid-column: 1/3;
 }
-
 
 .footer {
   position: relative;
