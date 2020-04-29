@@ -1,5 +1,280 @@
 @use '../base/vars'as *;
+@use '../base/mixins'as *;
 
 body {
     background-color: $primary-color;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+
+    #hero {
+        background-image: url("static/imgs/landing3.jpg");
+        background-size: cover;
+        width: 100%;
+        height: fit-content;
+        background-position: 50%;
+        color: white;
+
+        div {
+            width: 100%;
+            padding: 50px;
+
+            p,
+            h1 {
+                max-width: 500px;
+            }
+
+            @include desktop {
+                background-color: transparent;
+                padding: 50px;
+            }
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        p+p {
+            margin-bottom: 0;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        @include desktop {
+            width: 70%;
+            height: calc(var(--vh, 1vh) * 100);
+        }
+    }
+
+    #form_container {
+        padding: 50px;
+        max-width: 500px;
+        margin: 0 auto;
+
+
+        h2 {
+            margin-top: 0;
+        }
+
+        @include desktop {
+            width: 30%;
+            height: calc(var(--vh, 1vh) * 100);
+            overflow-y: scroll;
+        }
+
+        #access_btn {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: none;
+            outline: none;
+            font-size: 1.8rem;
+            font-family: $font_regular;
+            padding: 0;
+            cursor: pointer;
+            color: $link;
+            text-decoration: underline;
+            background: transparent;
+        }
+
+        .intro_text {
+            font-size: 1.8rem;
+            font-family: $font_regular;
+        }
+
+
+        form {
+            margin-top: 50px;
+
+            fieldset {
+                padding: 0;
+                margin: 0;
+                border: none;
+
+                legend {
+                    padding: 0;
+                    margin-bottom: 10px;
+                    font-size: 1.8rem;
+                    font-family: $font_bold;
+                }
+            }
+
+            input:not([type="checkbox"]),
+            select {
+                display: block;
+                width: 100%;
+                padding: 10px;
+            }
+
+            label {
+                display: inline-block;
+                margin-bottom: 5px;
+                font-family: $font_regular;
+            }
+
+            #consent_label {
+                display: inline;
+            }
+
+            input,
+            select {
+                margin-bottom: 30px;
+                font-family: $font_regular;
+                font-size: 1.5rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                border: 1px solid black;
+                border-radius: 2px;
+            }
+
+            input[type=checkbox] {
+                margin-bottom: 0;
+                cursor: pointer;
+                -webkit-appearance: checkbox;
+                -moz-appearance: checkbox;
+            }
+
+            select {
+                height: 40px;
+                cursor: pointer;
+                background-color: transparent;
+            }
+
+            input:focus,
+            select:focus {
+                border: 1px solid gray;
+                outline: none;
+            }
+
+            #country_container {
+                position: relative;
+
+                span {
+                    position: absolute;
+                    right: 5px;
+                    top: 10px;
+                    pointer-events: none;
+                    font-size: 2rem;
+                }
+            }
+
+            #back_btn {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-color: transparent;
+                padding: 0;
+                margin: 0;
+                color: $link;
+                border: none;
+                margin-top: 10px;
+                text-decoration: underline;
+                cursor: pointer;
+                font-size: 1.4rem;
+                display: block;
+            }
+
+            button {
+                display: block;
+            }
+
+            .invalid {
+                border: 1px solid red;
+            }
+
+            .error {
+                color: red;
+                margin-top: -25px;
+                margin-bottom: 20px;
+                z-index: 10;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                // display: none;
+
+                span.material-icons {
+                    font-size: 1.6rem;
+                    margin-right: 5px;
+                    transform: translateY(4px);
+                }
+
+                span+span {
+                    font-size: 1.2rem;
+                    font-family: $font_regular;
+                }
+            }
+
+            .consent-err {
+                margin-top: 0;
+            }
+
+
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .main_btn {
+        padding: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: $secondary-color;
+        color: $primary-color;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+        font-family: $font_bold;
+        font-size: 1.6rem;
+        box-shadow: 5px 5px 0px -2px $highlight;
+    }
+
+    .main_btn:focus {
+        outline: none;
+    }
+
+    .main_btn:active {
+        transform: translateX(2px) translateY(2px);
+        box-shadow: none;
+    }
+
+    .main_btn:disabled {
+        background-color: gray;
+        box-shadow: none;
+        cursor: default;
+    }
+
+    .submit_container {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .loader {
+        border: 5px solid black;
+        border-top: 5px solid $highlight;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin-left: 10px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }
