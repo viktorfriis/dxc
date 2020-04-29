@@ -278,3 +278,38 @@ main {
         }
     }
 }
+
+
+#asset_main {
+    #form_container {
+
+        @include tablet {
+            width: 60%;
+        }
+
+        max-width: none;
+
+        h2,
+        p {
+            max-width: 400px;
+        }
+
+        form {
+            div {
+
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 30px;
+                }
+
+
+                div {
+                    display: block;
+                }
+            }
+
+
+        }
+    }
+}

@@ -15,7 +15,6 @@ function start() {
 
     document.querySelector("#direct_access_container").style.display = "none";
 
-
     elements = HTML.signupForm.elements;
 
     vh = window.innerHeight * 0.01;
@@ -31,6 +30,8 @@ function start() {
 
     if (localStorage.getItem("auth")) {
         excistingUser();
+    } else {
+        console.log("not authenticated");
     }
 
     formReady();
