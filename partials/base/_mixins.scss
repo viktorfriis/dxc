@@ -6,6 +6,12 @@
     }
 }
 
+@mixin medium {
+    @media (min-width: #{$medium}) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: #{$desktop}) {
         @content;
