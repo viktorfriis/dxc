@@ -23,8 +23,19 @@ h2 {
     font-family: $font_bold;
 }
 
+h3,
+h4 {
+    font-family: $font_bold;
+}
+
 p,
 a {
     font-size: 1.8rem;
     font-family: $font_regular;
+    line-height: 1.4;
+}
+
+ul {
+    font-family: $font_regular;
+    font-size: 1.2rem;
 }

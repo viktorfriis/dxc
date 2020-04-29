@@ -1,0 +1,219 @@
+@use '../base/vars'as *;
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header h1 {
+  font-family: $font_bold;
+  font-size: 2rem;
+  position: absolute;
+  top: 1px;
+  margin: 30px;
+  color: white;
+}
+
+header h2 {
+  font-family: $font_bold;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 95px;
+  margin: 30px;
+  color: white;
+}
+
+.column {
+  h2 {
+    font-size: 2rem;
+    font-family: $font_bold;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  width: 40%;
+  position: relative;
+  display: block;
+  left: 55%;
+}
+
+.column h1 {
+  color: white;
+  padding: 10px;
+}
+
+.section-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section-wrapper {
+  // display: flex;
+  // flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.column {
+  flex-grow: 1;
+  flex-basis: 600px;
+  padding: 0 50px;
+}
+
+body>main>section.section-wrapper>div:nth-child(2)>p:nth-child(1) {
+  margin-top: 0;
+}
+
+#column1 {
+  background-image: url("static/imgs/pic1.jpg");
+  background-size: cover;
+  background-position: right;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.second-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.column img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.column2 {
+  flex-grow: 1;
+  flex-basis: 600px;
+  margin: 10px;
+}
+
+.column2 h1 {
+  position: relative;
+  text-align: center;
+}
+
+.column2 img {
+  filter: grayscale(100%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+hr {
+  width: 410%;
+  border: 1px solid black;
+}
+
+/*/GRID/*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+
+}
+
+.grid-container {
+  h3 {
+    border-bottom: 3px solid;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  div {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+  }
+}
+
+.item4 {
+  grid-column: 1;
+}
+
+.item3 {
+  grid-column: 1/3;
+}
+
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.format p {
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  left: 10px;
+  top: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/*/ FAVICONER /*/
+
+.fa {
+  padding: 5px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-linkedin {
+  color: white;
+}
+
+/* Facebook */
+.fa-facebook {
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  color: white;
+}

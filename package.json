@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html --open",
+    "assets": "parcel assets.html --open",
     "build": "parcel build *.html --public-url ./"
   },
   "repository": {
