@@ -266,7 +266,7 @@ function post(data) {
             body: postData
         })
         .then(e => e.json())
-        .then(e => window.location.href = "test.html");
+        .then(e => window.location.href = "assets.html");
 }
 
 //PUT
@@ -320,5 +320,5 @@ function updateUser(postData, e) {
             body: postData
         })
         .then(e => e.json())
-        .then(e => window.location.href = "test.html")
+        .then(e => window.location.href = "assets.html")
 }

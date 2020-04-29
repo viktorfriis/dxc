@@ -110,7 +110,7 @@ span.bold {
   }
 }
 
-body > main > section.section-wrapper > div:nth-child(2) > p:nth-child(1) {
+body>main>section.section-wrapper>div:nth-child(2)>p:nth-child(1) {
   margin-top: 0;
 }
 
@@ -231,8 +231,6 @@ li {
   text-align: center;
   font-size: 1rem;
   position: relative;
-  left: 10px;
-  top: 3px;
 }
 
 /*/ FAVICONER /*/
@@ -261,4 +259,44 @@ li {
 /* Twitter */
 .fa-twitter {
   color: white;
+}
+
+
+#signup_asset {
+  background-color: white;
+  width: 100vw;
+  overflow-y: scroll;
+
+  #form_container {
+
+    @include tablet {
+      width: 60%;
+    }
+
+    max-width: none;
+
+    h2,
+    p {
+      max-width: 500px;
+    }
+
+    form {
+      div {
+
+        @include desktop {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 30px;
+        }
+
+        div {
+          display: block;
+        }
+      }
+    }
+
+    .asset_hide {
+      display: none;
+    }
+  }
 }
